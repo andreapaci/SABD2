@@ -1,0 +1,61 @@
+version: "2"
+
+services:
+
+  # Zookeeper
+  zookeeper:
+    image: docker.io/bitnami/zookeeper:latest
+    ports:
+      - "2181:2181"
+    
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+      
+  # Broker 1 di Kafka
+  broker1:
+    image: docker.io/bitnami/kafka:latest
+    ports:
+      - "9093:9093"
+    
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://broker1:9092,EXTERNAL://localhost:9093
+      - KAFKA_INTER_BROKER_LISTENER_NAME=CLIENT
+    depends_on:
+      - zookeeper
+      
+  # Broker 2 di Kafka
+  broker2:
+    image: docker.io/bitnami/kafka:latest
+    ports:
+      - "9094:9093"
+    
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://broker2:9092,EXTERNAL://localhost:9094
+      - KAFKA_INTER_BROKER_LISTENER_NAME=CLIENT
+        
+    depends_on:
+      - zookeeper
+      
+  app:
+    build: ./AppSource
+    depends_on:
+      - zookeeper
+      - broker1
+      - broker2
+
+
+
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
+      
