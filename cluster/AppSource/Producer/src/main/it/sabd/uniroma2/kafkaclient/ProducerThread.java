@@ -1,6 +1,5 @@
 package it.sabd.uniroma2.kafkaclient;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -38,13 +37,8 @@ public class ProducerThread implements Runnable {
             }
 
             long diff = actualDate.getTime() - previousDate.getTime();
-
-
-            //System.out.println(diff);
-
             long waitTime = (long) (((float) diff / (1000f * 60f)) * Constants.MINUTE_DURATION);
 
-            //System.out.println(waitTime);
 
             try { TimeUnit.MICROSECONDS.sleep(waitTime); }
             catch(Exception e) { System.out.println("Could not wait " + waitTime + " microseconds."); }

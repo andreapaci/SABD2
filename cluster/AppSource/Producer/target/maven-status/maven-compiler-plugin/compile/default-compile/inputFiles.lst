@@ -1,6 +1,6 @@
-/Users/andreapaci/Desktop/SABD2/SABD2/cluster/Producer/src/main/it/sabd/uniroma2/kafkaclient/KafkaClient.java
-/Users/andreapaci/Desktop/SABD2/SABD2/cluster/Producer/src/main/it/sabd/uniroma2/kafkaclient/Constants.java
-/Users/andreapaci/Desktop/SABD2/SABD2/cluster/Producer/src/main/it/sabd/uniroma2/kafkaclient/Main.java
-/Users/andreapaci/Desktop/SABD2/SABD2/cluster/Producer/src/main/it/sabd/uniroma2/kafkaclient/ProducerThread.java
-/Users/andreapaci/Desktop/SABD2/SABD2/cluster/Producer/src/main/it/sabd/uniroma2/kafkaclient/ConsumerThread.java
-/Users/andreapaci/Desktop/SABD2/SABD2/cluster/Producer/src/main/it/sabd/uniroma2/kafkaclient/CSVParser.java
+/Users/andreapaci/Desktop/SABD2/SABD2/cluster/AppSource/Producer/src/main/it/sabd/uniroma2/kafkaclient/ConsumerThread.java
+/Users/andreapaci/Desktop/SABD2/SABD2/cluster/AppSource/Producer/src/main/it/sabd/uniroma2/kafkaclient/Constants.java
+/Users/andreapaci/Desktop/SABD2/SABD2/cluster/AppSource/Producer/src/main/it/sabd/uniroma2/kafkaclient/KafkaClient.java
+/Users/andreapaci/Desktop/SABD2/SABD2/cluster/AppSource/Producer/src/main/it/sabd/uniroma2/kafkaclient/ProducerThread.java
+/Users/andreapaci/Desktop/SABD2/SABD2/cluster/AppSource/Producer/src/main/it/sabd/uniroma2/kafkaclient/CSVParser.java
+/Users/andreapaci/Desktop/SABD2/SABD2/cluster/AppSource/Producer/src/main/it/sabd/uniroma2/kafkaclient/Main.java

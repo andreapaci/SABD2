@@ -29,7 +29,6 @@ public class KafkaClient {
 
         properties = new Properties();
 
-
         properties.put("bootstrap.servers", Constants.KAFKA_HOSTS);
         properties.put("group.id", "client");
         properties.put("enable.auto.commit", "true");
@@ -38,7 +37,6 @@ public class KafkaClient {
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-
 
         kafkaProducer = new KafkaProducer<>(properties);
         kafkaConsumer = new KafkaConsumer<>(properties);

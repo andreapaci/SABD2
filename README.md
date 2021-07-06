@@ -19,15 +19,25 @@ https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/deployment/res
 Conduktor (Client UI Kafka)
 https://www.conduktor.io
 
+Flink UI:
+localhost:8081
+
+Kafka Interfaccie Esterne:
+- localhost:9093
+- localhost:9094
+
 ## Producer
 
 Producer Single Thread che fa
 - Parsing del dataset e Load in memoria (Non ottimale)
 - Sorting del CSV
 - Producer di messaggi per Kafka
+- Commit topology a Flink
+- Legge outout
 
 
 ## TODO
 
-- [DONE] Cambiare la scale dei broker su Kafka
+## Note
 
+- No necessità di eliminare il messaggio alla lettura, kafka ha un retention di 7 giorni in automatico
