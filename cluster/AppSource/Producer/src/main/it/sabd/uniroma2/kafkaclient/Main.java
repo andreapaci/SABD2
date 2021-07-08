@@ -9,6 +9,8 @@ public class Main {
     public static void main(String[] args) {
 
         //System variable to decide jar goal (Kafka Client or Flink Job)
+        Constants.MOCK = false;
+
         if(args.length == 1) if(args[0].equals("scan")) flinkJob();
 
         String appGoal = System.getenv(Constants.APP_GOAL_NAME);
@@ -64,7 +66,8 @@ public class Main {
     private static List<String[]> loadDataset(boolean printOutput, boolean saveDataset){
 
 
-        CSVParser csvParser = new CSVParser("dataset.csv");
+        //CSVParser csvParser = new CSVParser("dataset.csv");
+        CSVParser csvParser = new CSVParser("testData.csv");
         List<String[]> dataset = csvParser.parseAndSort(saveDataset);
 
         if(printOutput) {

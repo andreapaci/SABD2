@@ -38,6 +38,13 @@ Producer Single Thread che fa
 
 ## TODO
 
+## SVILUPPI FUTURI
+
+- Aggiungere finestre con sottofinestre per ottimizzare la computazione (invece di fare 4 finestre da 7 giorni e una da 28 separate, inglobare le 4 in 28 per ottimizzare computazione)
+
 ## Note
 
 - No necessità di eliminare il messaggio alla lettura, kafka ha un retention di 7 giorni in automatico
+- Fare suddivisione mare correttamente
+- Automatizzare conversione celle in lettere
+- Usato offset invece che finestra allineata al primo valore per evitare tuple fuori ordine

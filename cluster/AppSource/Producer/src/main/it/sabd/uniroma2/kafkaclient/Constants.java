@@ -1,7 +1,18 @@
 package it.sabd.uniroma2.kafkaclient;
 
+import it.sabd.uniroma2.kafkaclient.enums.WindowSize;
+import org.apache.flink.api.java.tuple.Tuple2;
+
+import java.util.Map;
+import java.util.HashMap;
+import org.apache.flink.api.java.tuple.Tuple3;
+import org.apache.flink.streaming.api.windowing.time.Time;
+
 //Constants for application and connection configuration
 public class Constants {
+
+    //If set to True, the app can run in local, used to debug query without Kafka
+    public static boolean MOCK = true;
 
     //System enviroment variable name which decides if the application is the
     //Kafka Producer/Consumer or the Flink Jar Topology
@@ -15,7 +26,7 @@ public class Constants {
 
     //Duration of a Single minute expressed in Microseconds
     //public static final int MINUTES_PER_SECOND = 60 * 24 * 7 * 2;
-    public static final float MINUTE_DURATION = 1000f;
+    public static final float MINUTE_DURATION = 10f;
 
     //Used for connection to Kafka
     //public static final String KAFKA_HOSTS = "localhost:9093,localhost:9094";
@@ -34,13 +45,33 @@ public class Constants {
     public static final String INPUT_TOPIC_NAME = "input_topic";
     public static final String OUTPUT_TOPIC_NAME = "output_topic";
 
+    //Tags appendend to the output of the queries to distinguish the output
+    public static final String QUERY1_OUTPUT_TAG = "Query1";
+    public static final String QUERY2_OUTPUT_TAG = "Query2";
+    public static final String QUERY3_OUTPUT_TAG = "Query3";
+    //Appended Char to Flink Output, used as delimiter between the Tag of the output and the output itself
+    public static final String OUTPUT_DIVIDER = "#";
+
+    //Associate to each Window Size a Long representing the Size, the Sliding factor and
+    // a Window offset to align the window
+    public static final Map<WindowSize, Tuple3<Time, Time, Time>> WINDOW_MAP = new HashMap<WindowSize, Tuple3<Time, Time, Time>>();
+    static {
+        WINDOW_MAP.put(WindowSize.WEEKLY, new Tuple3<>(Time.days(7L), Time.days(7L), Time.seconds(428400L)));
+        WINDOW_MAP.put(WindowSize.MONTHLY, new Tuple3<>(Time.days(28L), Time.days(28L), Time.seconds(428400L)));
+        WINDOW_MAP.put(WindowSize.ONE_HOUR, new Tuple3<>(Time.hours(1L), Time.hours(1L), Time.seconds(0)));
+        WINDOW_MAP.put(WindowSize.TWO_HOUR, new Tuple3<>(Time.hours(2L), Time.hours(2L), Time.seconds(0)));
+    }
 
     public static final float MIN_LAT = 32f;
     public static final float MAX_LAT = 45f;
     public static final float MIN_LON = -6f;
     public static final float MAX_LON = 37f;
 
+    public static final float WEST_SEA_END = 12.275f;
+
     public static final float CELLS_LAT = 10;
     public static final float CELLS_LON = 40;
+
+    public static final String TIME_SLOT_END = "12:00";
 
 }

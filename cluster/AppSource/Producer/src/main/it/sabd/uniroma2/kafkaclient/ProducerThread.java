@@ -43,7 +43,7 @@ public class ProducerThread implements Runnable {
             try { TimeUnit.MICROSECONDS.sleep(waitTime); }
             catch(Exception e) { System.out.println("Could not wait " + waitTime + " microseconds."); }
 
-            KafkaClient.getInstance().sendMessage(index, arrayToCommaString(dataset.get(0)));
+            KafkaClient.getInstance().sendMessage(actualDate.getTime(), arrayToCommaString(dataset.get(0)));
 
             if(index % 500 == 0)
                 System.out.println("Message " + Long.toString(index) + " sending scheduled [" + dataset.get(0)[0] + "]");

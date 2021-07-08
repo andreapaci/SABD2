@@ -1,5 +1,9 @@
 package it.sabd.uniroma2.kafkaclient.entity;
 
+import it.sabd.uniroma2.kafkaclient.enums.Seas;
+import it.sabd.uniroma2.kafkaclient.enums.TimeSlot;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class NavalData {
@@ -12,6 +16,7 @@ public class NavalData {
     private float lat;
     private String cell;
     private Seas sea;
+    private TimeSlot timeSlot;
     //private String course;
     //private String heading;
     //private String departurePort;
@@ -26,13 +31,14 @@ public class NavalData {
         this.lat = lat;
     }
 
-    public Date getTs() {
-        return ts;
+    public String getFormattedTs() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+        return format.format(ts);
     }
 
-    public String getId() {
-        return id;
-    }
+    public Date getTs() { return ts; }
+
+    public String getId() { return id; }
 
     public String getShipType() {
         return shipType;
@@ -54,11 +60,33 @@ public class NavalData {
         return sea;
     }
 
+    public TimeSlot getTimeSlot() {
+        return timeSlot;
+    }
+
     public void setCell(String cell) {
         this.cell = cell;
     }
 
     public void setSea(Seas sea) {
         this.sea = sea;
+    }
+
+    public void setTimeSlot(TimeSlot timeSlot) {
+        this.timeSlot = timeSlot;
+    }
+
+    @Override
+    public String toString() {
+        return "NavalData{" +
+                "ts=" + getFormattedTs() +
+                ", id='" + id + '\'' +
+                ", shipType='" + shipType + '\'' +
+                ", lon=" + lon +
+                ", lat=" + lat +
+                ", cell='" + cell + '\'' +
+                ", sea=" + sea +
+                ", timeSlot=" + timeSlot +
+                '}';
     }
 }

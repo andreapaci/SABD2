@@ -21,7 +21,7 @@ public class KafkaClient {
 
     private Properties properties;
     private AdminClient adminClient;
-    private Producer<String, String> kafkaProducer;
+    private Producer<Long, String> kafkaProducer;
     private Consumer<String, String> kafkaConsumer;
 
 
@@ -33,9 +33,9 @@ public class KafkaClient {
         properties.put("group.id", "client");
         properties.put("enable.auto.commit", "true");
         properties.put("auto.commit.interval.ms", "1000");
-        properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        properties.put("key.serializer", "org.apache.kafka.common.serialization.LongSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        properties.put("key.deserializer", "org.apache.kafka.common.serialization.LongDeserializer");
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
         kafkaProducer = new KafkaProducer<>(properties);
@@ -67,8 +67,8 @@ public class KafkaClient {
 
     public void sendMessage(long key, String value){
 
-        ProducerRecord<String, String> record =
-                new ProducerRecord<>(Constants.INPUT_TOPIC_NAME, Long.toString(key), value);
+        ProducerRecord<Long, String> record =
+                new ProducerRecord<>(Constants.INPUT_TOPIC_NAME, 0, key, key, value);
 
         //Send asynchronous
         kafkaProducer.send(record, (metadata, exception) -> {
