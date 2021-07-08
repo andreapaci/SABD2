@@ -1,11 +1,7 @@
-package it.sabd.uniroma2.kafkaclient.queries;
+package it.sabd.uniroma2.app.queries.query2;
 
-import it.sabd.uniroma2.kafkaclient.entity.NavalData;
+import it.sabd.uniroma2.app.entity.NavalData;
 import org.apache.flink.api.common.functions.AggregateFunction;
-import org.apache.flink.api.java.tuple.Tuple2;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 public class Query2Aggregator implements AggregateFunction<NavalData, Query2Accumulator, Query2Result> {
 

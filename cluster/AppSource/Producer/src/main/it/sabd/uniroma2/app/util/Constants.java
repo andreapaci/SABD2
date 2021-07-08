@@ -1,7 +1,6 @@
-package it.sabd.uniroma2.kafkaclient;
+package it.sabd.uniroma2.app.util;
 
-import it.sabd.uniroma2.kafkaclient.enums.WindowSize;
-import org.apache.flink.api.java.tuple.Tuple2;
+import it.sabd.uniroma2.app.enums.WindowSize;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -54,13 +53,15 @@ public class Constants {
 
     //Associate to each Window Size a Long representing the Size, the Sliding factor and
     // a Window offset to align the window
-    public static final Map<WindowSize, Tuple3<Time, Time, Time>> WINDOW_MAP = new HashMap<WindowSize, Tuple3<Time, Time, Time>>();
+    public static final Map<WindowSize, Tuple3<Time, Time, Time>> WINDOW_MAP = new HashMap<>();
     static {
-        WINDOW_MAP.put(WindowSize.WEEKLY, new Tuple3<>(Time.days(7L), Time.days(7L), Time.seconds(428400L)));
-        WINDOW_MAP.put(WindowSize.MONTHLY, new Tuple3<>(Time.days(28L), Time.days(28L), Time.seconds(428400L)));
+        WINDOW_MAP.put(WindowSize.WEEKLY, new Tuple3<>(Time.days(7L), Time.days(7L), Time.days(5L)));
+        WINDOW_MAP.put(WindowSize.MONTHLY, new Tuple3<>(Time.days(28L), Time.days(28L), Time.days(12L))); //12L
         WINDOW_MAP.put(WindowSize.ONE_HOUR, new Tuple3<>(Time.hours(1L), Time.hours(1L), Time.seconds(0)));
         WINDOW_MAP.put(WindowSize.TWO_HOUR, new Tuple3<>(Time.hours(2L), Time.hours(2L), Time.seconds(0)));
     }
+
+    public static final Long TEST_WINDOW_OFFSET = 428400L;
 
     public static final float MIN_LAT = 32f;
     public static final float MAX_LAT = 45f;

@@ -1,4 +1,6 @@
-package it.sabd.uniroma2.kafkaclient;
+package it.sabd.uniroma2.app.kafka;
+
+import it.sabd.uniroma2.app.util.Constants;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

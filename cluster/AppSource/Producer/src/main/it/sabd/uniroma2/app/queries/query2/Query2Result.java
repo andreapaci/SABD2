@@ -1,6 +1,6 @@
-package it.sabd.uniroma2.kafkaclient.queries;
+package it.sabd.uniroma2.app.queries.query2;
 
-import it.sabd.uniroma2.kafkaclient.enums.TimeSlot;
+import it.sabd.uniroma2.app.enums.TimeSlot;
 import org.apache.flink.api.java.tuple.Tuple2;
 
 import java.util.ArrayList;

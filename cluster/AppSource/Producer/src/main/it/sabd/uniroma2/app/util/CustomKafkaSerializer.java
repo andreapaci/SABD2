@@ -1,4 +1,4 @@
-package it.sabd.uniroma2.kafkaclient.util;
+package it.sabd.uniroma2.app.util;
 
 import org.apache.flink.streaming.connectors.kafka.KafkaSerializationSchema;
 import org.apache.kafka.clients.producer.ProducerRecord;

@@ -1,4 +1,4 @@
-package it.sabd.uniroma2.kafkaclient.enums;
+package it.sabd.uniroma2.app.enums;
 
 public enum WindowSize {
     WEEKLY,

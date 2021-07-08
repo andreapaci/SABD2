@@ -1,4 +1,7 @@
-package it.sabd.uniroma2.kafkaclient;
+package it.sabd.uniroma2.app;
+
+import it.sabd.uniroma2.app.flink.FlinkTopology;
+import it.sabd.uniroma2.app.util.Constants;
 
 public class MockMain {
 

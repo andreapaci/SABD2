@@ -1,7 +1,7 @@
-package it.sabd.uniroma2.kafkaclient.queries;
+package it.sabd.uniroma2.app.queries.query2;
 
-import it.sabd.uniroma2.kafkaclient.entity.NavalData;
-import it.sabd.uniroma2.kafkaclient.enums.TimeSlot;
+import it.sabd.uniroma2.app.entity.NavalData;
+import it.sabd.uniroma2.app.enums.TimeSlot;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -35,6 +35,7 @@ public class Query2Accumulator {
         ArrayList<String> list = cells.get(cell);
         String data = id + date;
 
+        //TODO: usare hashmap invece che arraylist (key = nave giorno, value = nan)
         if (list == null) {
             list = new ArrayList<>();
             list.add(data);

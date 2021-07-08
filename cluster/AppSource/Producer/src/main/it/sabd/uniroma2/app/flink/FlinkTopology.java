@@ -1,31 +1,28 @@
-package it.sabd.uniroma2.kafkaclient;
+package it.sabd.uniroma2.app.flink;
 
 
 
 
-import it.sabd.uniroma2.kafkaclient.entity.NavalData;
-import it.sabd.uniroma2.kafkaclient.enums.Seas;
-import it.sabd.uniroma2.kafkaclient.enums.TimeSlot;
-import it.sabd.uniroma2.kafkaclient.queries.Query2Aggregator;
-import it.sabd.uniroma2.kafkaclient.queries.Query2Result;
+import it.sabd.uniroma2.app.entity.NavalData;
+import it.sabd.uniroma2.app.enums.Seas;
+import it.sabd.uniroma2.app.enums.TimeSlot;
+import it.sabd.uniroma2.app.enums.WindowSize;
+import it.sabd.uniroma2.app.queries.query1.Query1;
+import it.sabd.uniroma2.app.queries.query2.Query2;
+import it.sabd.uniroma2.app.util.Constants;
+import it.sabd.uniroma2.app.util.Utils;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
-import org.apache.flink.api.common.functions.AggregateFunction;
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
-import org.apache.flink.api.java.functions.KeySelector;
-import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
-import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
-import org.apache.flink.util.Collector;
 
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -65,6 +62,20 @@ public class FlinkTopology {
 
         //testStream(dataStream);
 
+        Query1 query1Month = new Query1(WindowSize.MONTHLY);
+        query1Month.defineQuery(dataStream);
+
+        Query1 query1Week = new Query1(WindowSize.WEEKLY);
+        query1Week.defineQuery(dataStream);
+
+        Query2 query2Month = new Query2(WindowSize.MONTHLY);
+        query2Month.defineQuery(dataStream);
+
+        Query2 query2Week = new Query2(WindowSize.WEEKLY);
+        query2Week.defineQuery(dataStream);
+
+        //Query2 query2 = new Query2(WindowSize.WEEKLY);
+        //query2.defineQuery(dataStream);
 
 
         //dataStream = addSink(dataStream);
@@ -90,7 +101,7 @@ public class FlinkTopology {
                                 return navalData.getFormattedTs();
                             }
                         })
-                        .windowAll(SlidingEventTimeWindows.of(Time.days(7L), Time.days(7L), Time.seconds(Constants.WINDOW_OFFSET)))
+                        .windowAll(SlidingEventTimeWindows.of(Time.days(7L), Time.days(7L), Time.seconds(Constants.TEST_WINDOW_OFFSET)))
                         .reduce(new ReduceFunction<String>() {
                             @Override
                             public String reduce(String s, String t1) throws Exception {
@@ -114,7 +125,42 @@ public class FlinkTopology {
         if(Constants.MOCK){
 
             dataStream = executionEnvironment.readTextFile("mock_dataset.txt");
+            /*DataStream<NavalData> shipsRoutes = executionEnvironment.fromElements(
+                    new NavalData(Utils.formatStringToDate("2015/03/10 12:15"), "0xc35c9ebbf48cbb5857a868ce441824d0b2ff783a", 99,
+                            (float) 10.56034, (float) 35.8109, "0xc35c9_10-03-15 12:xx - 10-03-15 13:26"),
 
+                    new NavalData(Utils.formatStringToDate("2015/03/11 12:13"), "0xc35c9ebbf48cbb5857a868ce441824d0bpippo", 66,
+                            (float) 11.56034, (float) 35.8109, "0xc35c9_10-03-15 12:xx - 10-03-15 13:26"),
+
+                    new NavalData(Utils.formatStringToDate("2015/03/11 12:15"), "0xc35c9ebbf48cbb5857a868ce441824d0b2topolino", 33,
+                            (float) -5.354218, (float) 35.8109, "0xc35c9_10-03-15 12:xx - 10-03-15 13:26"),
+
+                    new NavalData(Utils.formatStringToDate("2015/03/12 12:15"), "0xc35c9ebbf48cbb5857a868ce441824d0b2pluto", 70,
+                            (float) 11.56034, (float) 35.8109, "0xc35c9_10-03-15 12:xx - 10-03-15 13:26"),
+
+                    new NavalData(Utils.formatStringToDate("2015/03/13 12:15"), "0xc35c9ebbf48cbb5857a868ce441824d0bpaperino", 35,
+                            (float) -5.354218, (float) 35.8109, "0xc35c9_10-03-15 12:xx - 10-03-15 13:26"),
+
+                    new NavalData(Utils.formatStringToDate("2015/03/14 13:51"), "0x6cafd52f3e1a09950e6e889daabf81bafbe7a40a", 35,
+                            (float) -5.374995, (float) 36.04406, "0x6cafd_14-03-15 13:xx - 18-04-15 16:29"),
+
+                    new NavalData(Utils.formatStringToDate("2015/03/18 06:55"), "0x6d6794f3186f584637721a1e1789fd2e71c28195", 83,
+                            (float) -5.354218, (float) 35.92629, "0x6d679_17-03-15 7:xx - 20-03-15 18:18"),
+
+                    new NavalData(Utils.formatStringToDate("2015/03/18 06:57"), "0xb633ed54f31994072009a034d63d3b65e471fba9", 30,
+                            (float) 14.52148, (float) 35.8989, "0xb633e_18-03-15 6:xx - 18-03-15 8:24"),
+
+                    new NavalData(Utils.formatStringToDate("2015/03/18 06:58"), "0x6d6794f3186f584637721a1e1789fd2e71c28195", 83,
+                            (float) -5.354218, (float) 35.92628, "0x6d679_17-03-15 7:xx - 20-03-15 18:18"),
+
+                    new NavalData(Utils.formatStringToDate("2015/03/18 06:59"), "0xb633ed54f31994072009a034d63d3b65e4culo", 30,
+                            (float) 8.52536, (float) 35.90051, "0xb633e_18-03-15 6:xx - 18-03-15 8:24"),
+
+                    new NavalData(Utils.formatStringToDate("2020/03/18 06:59"), "0xb633ed54f31994072009a034d63d3b65e4cazzo", 30,
+                            (float) 8.52536, (float) 35.90051, "0xb633e_18-03-15 6:xx - 18-03-15 8:24")
+
+            );
+            return shipsRoutes; */
 
         } else {
             FlinkKafkaConsumer<String> kafkaSource = new FlinkKafkaConsumer<>(Constants.INPUT_TOPIC_NAME, new SimpleStringSchema(), properties);
@@ -137,7 +183,7 @@ public class FlinkTopology {
             }
 
             //TODO: controlla il dato inviato da Kafka e vedi se l'ordine è corretto
-            return new NavalData(formattedDate, values[1], values[2], Float.parseFloat(values[4]), Float.parseFloat(values[5]));
+            return new NavalData(formattedDate, values[1], values[2], Float.parseFloat(values[4]), Float.parseFloat(values[5]), values[10]);
         });
 
 
@@ -280,7 +326,8 @@ public class FlinkTopology {
 
         //TODO: imposa bene windows
         WatermarkStrategy<NavalData> watermarkStrategy = WatermarkStrategy
-                .<NavalData>forBoundedOutOfOrderness(Duration.ofDays(1));
+                .<NavalData>forBoundedOutOfOrderness(Duration.ofMinutes(5L));
+        //TODO: Mettere giusto watermark
         if(Constants.MOCK)
                 watermarkStrategy = watermarkStrategy.withTimestampAssigner((event, timestamp) -> event.getTs().getTime());
 

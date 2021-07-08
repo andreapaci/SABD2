@@ -1,4 +1,11 @@
-package it.sabd.uniroma2.kafkaclient;
+package it.sabd.uniroma2.app;
+
+import it.sabd.uniroma2.app.flink.FlinkHandler;
+import it.sabd.uniroma2.app.flink.FlinkTopology;
+import it.sabd.uniroma2.app.kafka.ConsumerThread;
+import it.sabd.uniroma2.app.kafka.ProducerThread;
+import it.sabd.uniroma2.app.util.CSVParser;
+import it.sabd.uniroma2.app.util.Constants;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

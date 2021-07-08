@@ -1,5 +1,6 @@
-package it.sabd.uniroma2.kafkaclient;
+package it.sabd.uniroma2.app.flink;
 
+import it.sabd.uniroma2.app.util.Constants;
 import org.apache.flink.api.common.JobID;
 import org.apache.flink.client.deployment.StandaloneClusterId;
 import org.apache.flink.client.program.PackagedProgram;

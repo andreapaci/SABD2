@@ -1,26 +1,25 @@
-package it.sabd.uniroma2.kafkaclient.queries;
+package it.sabd.uniroma2.app.queries.query2;
 
-import it.sabd.uniroma2.kafkaclient.Constants;
-import it.sabd.uniroma2.kafkaclient.entity.NavalData;
-import it.sabd.uniroma2.kafkaclient.enums.WindowSize;
-import org.apache.flink.api.java.functions.KeySelector;
+import it.sabd.uniroma2.app.util.Constants;
+import it.sabd.uniroma2.app.entity.NavalData;
+import it.sabd.uniroma2.app.enums.WindowSize;
+import it.sabd.uniroma2.app.queries.QueryAbstract;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
-import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
 
-public class Query2 extends QueryAbstract{
+public class Query2 extends QueryAbstract {
 
 
     public Query2(WindowSize windowSize) {
         super(windowSize);
-        this.tag = "Query2" + this.tag;
+        this.tag = Constants.QUERY2_OUTPUT_TAG + this.tag;
     }
 
     @Override
@@ -28,8 +27,8 @@ public class Query2 extends QueryAbstract{
 
         SingleOutputStreamOperator<String> output =
                 dataStream
-                .keyBy((KeySelector<NavalData, String>) navalData -> navalData.getSea().toString())
-                .window(SlidingEventTimeWindows.of(Time.days(7L), Time.days(7L), Time.seconds(Constants.WINDOW_OFFSET)))
+                .keyBy(NavalData::getStringSea)
+                .window(SlidingEventTimeWindows.of(this.windowSizeTime, this.slidingFactor, this.offset))
                 .aggregate(new Query2Aggregator(),
                         new ProcessWindowFunction<Query2Result, String, String, TimeWindow>() {
                             @Override
@@ -43,11 +42,16 @@ public class Query2 extends QueryAbstract{
                                 Query2Result tuple = iterator.next();
 
                                 output += tuple.returnLists();
-                                output = tag + output;
 
                                 collector.collect(output);
+                                //TODO: levare process window function, e fare ordinamento partizionato (distribuito) per ottimizzare
                             }
                         });
+
+        output = appendTag(output);
+
+        output.print();
+
         return output;
     }
 

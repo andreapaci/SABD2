@@ -1,7 +1,7 @@
-package it.sabd.uniroma2.kafkaclient.entity;
+package it.sabd.uniroma2.app.entity;
 
-import it.sabd.uniroma2.kafkaclient.enums.Seas;
-import it.sabd.uniroma2.kafkaclient.enums.TimeSlot;
+import it.sabd.uniroma2.app.enums.Seas;
+import it.sabd.uniroma2.app.enums.TimeSlot;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,15 +21,27 @@ public class NavalData {
     //private String heading;
     //private String departurePort;
     //private String reportedDraugth;
-    //private String tripId;
+    private String tripId;
 
-    public NavalData(Date ts, String id, String shipType, float lon, float lat) {
+    public NavalData(Date ts, String id, String shipType, float lon, float lat, String tripId) {
         this.ts = ts;
         this.id = id;
         this.shipType = shipType;
         this.lon = lon;
         this.lat = lat;
+        this.tripId = tripId;
     }
+
+    //TODO: da rimuovere
+    public NavalData(Date ts, String id, int shipType, float lon, float lat, String tripId) {
+        this.ts = ts;
+        this.id = id;
+        this.shipType = String.valueOf(shipType);
+        this.lon = lon;
+        this.lat = lat;
+        this.tripId = tripId;
+    }
+
 
     public String getFormattedTs() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
@@ -60,9 +72,13 @@ public class NavalData {
         return sea;
     }
 
+    public String getStringSea() { return sea.toString(); }
+
     public TimeSlot getTimeSlot() {
         return timeSlot;
     }
+
+    public String getTripId() { return tripId; }
 
     public void setCell(String cell) {
         this.cell = cell;

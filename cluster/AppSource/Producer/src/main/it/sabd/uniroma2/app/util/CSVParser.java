@@ -1,4 +1,4 @@
-package it.sabd.uniroma2.kafkaclient;
+package it.sabd.uniroma2.app.util;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
