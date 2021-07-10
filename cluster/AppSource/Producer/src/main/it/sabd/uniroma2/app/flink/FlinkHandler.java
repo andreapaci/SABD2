@@ -24,7 +24,6 @@ public class FlinkHandler {
         configuration.setInteger(RestOptions.PORT, Constants.FLINK_PORT);
         configuration.setInteger(RestOptions.RETRY_MAX_ATTEMPTS, 3);
 
-
     }
 
 

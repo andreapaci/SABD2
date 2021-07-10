@@ -2,33 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c0358b6-b46c-4e52-a6ba-6b530f97fc96" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1Aggregator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1MapFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1ProcessWindowFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/MapFunctionAppendTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/AccumulatorTop5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/NavigationScore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3Aggregator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3AggregatorTop5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3ProcessWindowFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CSVWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_dataset/dataset_Q3.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_dataset/dataset_Q3_easy.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../SABD2dataset.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mock_dataset.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mock_dataset.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mock_dataset.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_dataset/dataset_Q1_Q2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ordered_dataset copia.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test_dataset/ordered_dataset_extended.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ordered_dataset.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test_dataset/ordered_dataset.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/CSVParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CSVParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/ConsumerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ConsumerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/FlinkHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/FlinkTopology.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkTopology.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/KafkaClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/KafkaClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/MockMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/MockMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/ProducerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ProducerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/entity/NavalData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/entity/NavalData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/enums/Seas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/Seas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/enums/TimeSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/TimeSlot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/enums/WindowSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/WindowSize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/queries/Query2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/queries/Query2Accumulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Accumulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/queries/Query2Aggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Aggregator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/queries/Query2Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/queries/QueryAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/QueryAbstract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/util/CustomKafkaSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CustomKafkaSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/entity/NavalData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/entity/NavalData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/WindowSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/WindowSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkTopology.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkTopology.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ConsumerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ConsumerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/KafkaClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/KafkaClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ProducerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ProducerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1Aggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1Aggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Accumulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Accumulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Aggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Aggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test_dataset/pre_dataset.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_window_dataset.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_dataset/test_window_dataset.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,153 +48,122 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.42735043">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="CSVParser.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CSVParser.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="FlinkTopology.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkTopology.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="341">
-                  <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="KafkaClient.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/KafkaClient.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="173">
-                  <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ConsumerThread.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ConsumerThread.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ProducerThread.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ProducerThread.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Utils.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mock_dataset.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mock_dataset.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="26" column="95" selection-start-line="26" selection-start-column="95" selection-end-line="26" selection-end-column="95" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Constants.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="128">
-                  <caret line="58" column="100" selection-start-line="58" selection-start-column="100" selection-end-line="58" selection-end-column="100" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="FlinkHandler.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkHandler.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Query2.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="118">
-                  <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#1306#2241#0" expanded="true" />
-                    <element signature="e#2240#2241#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="Query1.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="381">
-                  <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Query1Aggregator.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1Aggregator.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-378">
-                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ProducerThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ProducerThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-816">
+              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MockMain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/MockMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Query1Aggregator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1Aggregator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CSVWriter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CSVWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlinkTopology.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkTopology.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="228" selection-start-line="228" selection-end-line="228" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomKafkaSerializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CustomKafkaSerializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapFunctionAppendTag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/MapFunctionAppendTag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1500">
+              <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CSVParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CSVParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-186">
+              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -209,6 +186,10 @@
       <find>0sxc35c9ebbf48cbb5857a868ce441824d0b2ff783a</find>
       <find>18</find>
       <find>Tuple</find>
+      <find>13</find>
+      <find>addSi</find>
+      <find>cazzo</find>
+      <find>cazz</find>
     </findStrings>
     <replaceStrings>
       <replace>NAVE_C</replace>
@@ -240,24 +221,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Producer.java" />
-        <option value="$PROJECT_DIR$/src/kafka.proprerties" />
-        <option value="$PROJECT_DIR$/src/main/java/it/sabd/uniroma2/kafkaproducer/CSVParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/sabd/uniroma2/kafkaproducer/Producer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/sabd/uniroma2/kafkaproducer/Main.java" />
-        <option value="$PROJECT_DIR$/kafka.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/it/sabd/uniroma2/kafkaproducer/KafkaClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/sabd/uniroma2/kafkaproducer/ProducerThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/sabd/uniroma2/kafkaproducer/Constants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/sabd/uniroma2/kafkaproducer/ConsumerThread.java" />
-        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/ConsumerThread.java" />
-        <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/CSVParser.java" />
-        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/FlinkQuery1.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/util/JavaSerializer.java" />
-        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/util/CustomKafkaDeserializer.java" />
-        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/FlinkHandler.java" />
         <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/util/CustomKafkaSerializer.java" />
         <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/entity/Seas.java" />
         <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/enums/TimeSlot.java" />
@@ -286,11 +249,29 @@
         <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/queries/query1/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/FlinkTopology.java" />
         <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/util/Utils.java" />
-        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ProducerThread.java" />
         <option value="$PROJECT_DIR$/mock_dataset.txt" />
-        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Constants.java" />
-        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkTopology.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ConsumerThread.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/entity/NavalData.java" />
+        <option value="$PROJECT_DIR$/mock_dataset_1.txt" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3.java" />
         <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Result.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CSVWriter.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/WindowSize.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/KafkaClient.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ProducerThread.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Aggregator.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Accumulator.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3Aggregator.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3AggregatorTop5.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1Aggregator.java" />
+        <option value="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkTopology.java" />
       </list>
     </option>
   </component>
@@ -303,11 +284,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="339" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="25" />
-    <option name="width" value="1439" />
-    <option name="height" value="953" />
+    <option name="width" value="1920" />
+    <option name="height" value="1103" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -315,9 +295,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -407,12 +387,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="queries" type="462c0819:PsiDirectoryNode" />
+              <item name="query3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KafkaProducer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Producer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KafkaProducer" type="b2602c69:ProjectViewProjectNode" />
               <item name="Producer" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="test_dataset" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -434,9 +423,14 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/queries/query1" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test_dataset" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/queries/query1" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -542,12 +536,14 @@
       <workItem from="1624985234882" duration="9165000" />
       <workItem from="1625336031074" duration="11557000" />
       <workItem from="1625382656283" duration="41227000" />
-      <workItem from="1625607860040" duration="46135000" />
+      <workItem from="1625607860040" duration="54535000" />
+      <workItem from="1625792894601" duration="13427000" />
+      <workItem from="1625881443241" duration="1830000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109338000" />
+    <option name="totallyTimeSpent" value="132995000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -559,12 +555,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1680" height="953" extended-state="6" />
+    <frame x="0" y="25" width="1920" height="1103" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32705882" />
+      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.329" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.327" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -572,14 +568,14 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996395" visible="true" weight="0.36" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996395" weight="0.143" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49891853" weight="0.31257343" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16056167" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14270501" />
       <window_info anchor="bottom" id="Multi-OS Engine" order="7" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32902467" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -596,9 +592,8 @@
     <layout-to-restore>
       <window_info anchor="bottom" id="Multi-OS Engine" order="7" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996395" visible="true" weight="0.16235293" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32983193" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996395" visible="true" weight="0.16235293" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5003605" side_tool="true" weight="0.31374854" />
@@ -623,6 +618,7 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32983193" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout-to-restore>
   </component>
@@ -636,58 +632,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-core/1.13.1/flink-core-1.13.1.jar!/org/apache/flink/api/common/JobID.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-clients_2.12/1.13.1/flink-clients_2.12-1.13.1.jar!/org/apache/flink/client/program/PackagedProgram.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-clients_2.12/1.13.1/flink-clients_2.12-1.13.1.jar!/org/apache/flink/client/program/PackagedProgramUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/FlinkQuery1.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/kafka/kafka-clients/2.8.0/kafka-clients-2.8.0.jar!/org/apache/kafka/common/serialization/StringSerializer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-connector-kafka_2.11/1.13.1/flink-connector-kafka_2.11-1.13.1.jar!/org/apache/flink/streaming/connectors/kafka/KafkaDeserializationSchema.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/util/CustomKafkaDeserializer.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-core/1.13.1/flink-core-1.13.1.jar!/org/apache/flink/util/ChildFirstClassLoader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-315">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/kafkaclient/util/JavaSerializer.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/kafka/kafka-clients/2.8.0/kafka-clients-2.8.0.jar!/org/apache/kafka/clients/producer/Producer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-core/1.13.1/flink-core-1.13.1.jar!/org/apache/flink/api/common/serialization/SimpleStringSchema.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -709,13 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/TimeSlot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/src.zip!/java/time/Duration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -734,20 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="234" column="25" selection-start-line="234" selection-start-column="25" selection-end-line="234" selection-end-column="25" />
-          <folding>
-            <element signature="e#11518#11519#0" expanded="true" />
-            <element signature="e#11589#11590#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -755,13 +678,6 @@
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state relative-caret-position="240">
           <caret line="16" selection-start-line="11" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/Seas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -790,69 +706,172 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testData.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="125" lean-forward="true" selection-start-line="38" selection-start-column="125" selection-end-line="38" selection-end-column="125" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-streaming-java_2.12/1.13.1/flink-streaming-java_2.12-1.13.1.jar!/org/apache/flink/streaming/api/windowing/time/Time.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="5" column="54" lean-forward="true" selection-start-line="5" selection-end-line="5" selection-end-column="54" />
-          <folding>
-            <element signature="e#1319#1320#0" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/MapFunctionAppendTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ordered_dataset.csv">
+    <entry file="file://$PROJECT_DIR$/test_dataset/ordered_dataset.csv">
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state relative-caret-position="15">
           <caret line="1" column="85" lean-forward="true" selection-start-line="1" selection-start-column="85" selection-end-line="1" selection-end-column="85" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Accumulator.java">
+    <entry file="file://$PROJECT_DIR$/test_dataset/dataset_Q1_Q2.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="51" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1467#1468#0" expanded="true" />
-            <element signature="e#1505#1506#0" expanded="true" />
-            <element signature="e#1718#1719#0" expanded="true" />
-            <element signature="e#1755#1756#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="390">
+          <caret line="26" column="95" selection-start-line="26" selection-start-column="95" selection-end-line="26" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1OLD.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/kafka/kafka-clients/2.8.0/kafka-clients-2.8.0.jar!/org/apache/kafka/clients/consumer/Consumer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="695" column="29" selection-start-line="695" selection-start-column="29" selection-end-line="695" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_dataset/test_window_dataset.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-1138" />
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_dataset/pre_dataset.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-14473">
+          <caret line="1" column="127" selection-start-line="1" selection-start-column="125" selection-end-line="1" selection-end-column="127" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="76" column="47" lean-forward="true" selection-start-line="76" selection-start-column="47" selection-end-line="76" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/entity/NavalData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+        <state relative-caret-position="-561">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/Seas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/TimeSlot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/WindowSize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="63" column="93" lean-forward="true" selection-start-line="63" selection-start-column="93" selection-end-line="63" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ConsumerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/KafkaClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-275">
+          <caret line="54" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1MapFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1ProcessWindowFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Accumulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -861,25 +880,100 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Aggregator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="105">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/enums/WindowSize.java">
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2Result.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        <state relative-caret-position="735">
+          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1MapFunction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/AccumulatorTop5.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+        <state relative-caret-position="-36">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/NavigationScore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3Aggregator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-441">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3AggregatorTop5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query3/Query3ProcessWindowFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/QueryAbstract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="78" column="53" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CSVParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CSVWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -896,78 +990,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/QueryAbstract.java">
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/MapFunctionAppendTag.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/MockMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" column="48" lean-forward="true" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1ProcessWindowFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/CSVParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/KafkaClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ConsumerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1Aggregator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-378">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -976,35 +1009,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/kafka/ProducerThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="-816">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/util/Constants.java">
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/MockMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="58" column="100" selection-start-line="58" selection-start-column="100" selection-end-line="58" selection-end-column="100" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mock_dataset.txt">
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1Aggregator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="95" selection-start-line="26" selection-start-column="95" selection-end-line="26" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="504">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1013,42 +1036,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/flink/FlinkTopology.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
+        <state relative-caret-position="208">
+          <caret line="228" selection-start-line="228" selection-end-line="228" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1OLD.java">
+    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        <state relative-caret-position="1500">
+          <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query1/Query1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/it/sabd/uniroma2/app/queries/query2/Query2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1306#2241#0" expanded="true" />
-            <element signature="e#2240#2241#0" expanded="true" />
           </folding>
         </state>
       </provider>

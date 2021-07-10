@@ -7,8 +7,6 @@ services:
     image: docker.io/bitnami/zookeeper:latest
     ports:
       - "2181:2181"
-    depends_on:
-      - taskmanager
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
       
@@ -44,7 +42,7 @@ services:
     depends_on:
       - zookeeper
       
-      
+  # Master Flink
   jobmanager:
     image: flink:1.13.0-scala_2.11
     ports:
@@ -54,8 +52,20 @@ services:
       - |
         FLINK_PROPERTIES=
         jobmanager.rpc.address: jobmanager
+        metrics setting metrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter
+        metrics.reporter.prom.port: 9251
+        metrics.system-resource: true
+        metrics.system-resource-probing-interval: 5000
+        metrics.latency.interval: 1000
+        metrics.latency.granularity: operator
+        state.backend.rocksdb.metrics.actual-delayed-write-rate: true
+        state.backend.rocksdb.metrics.background-errors: true
+        state.backend.rocksdb.metrics.num-deletes-imm-mem-tables: true
+        state.backend.rocksdb.metrics.num-entries-imm-mem-tables: true
+        state.backend.rocksdb.metrics.num-snapshots: true
       - APP_GOAL=flinkjob
 
+  # Worker Flink
   taskmanager:
     image: flink:1.13.0-scala_2.11
     command: taskmanager
@@ -65,9 +75,21 @@ services:
         FLINK_PROPERTIES=
         jobmanager.rpc.address: jobmanager
         taskmanager.numberOfTaskSlots: 3
+        metrics setting metrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter
+        metrics.reporter.prom.port: 9251
+        metrics.system-resource: true
+        metrics.system-resource-probing-interval: 1000
+        metrics.latency.interval: 1000
+        metrics.latency.granularity: operator
+        state.backend.rocksdb.metrics.actual-delayed-write-rate: true
+        state.backend.rocksdb.metrics.background-errors: true
+        state.backend.rocksdb.metrics.num-deletes-imm-mem-tables: true
+        state.backend.rocksdb.metrics.num-entries-imm-mem-tables: true
+        state.backend.rocksdb.metrics.num-snapshots: true
     depends_on:
       - jobmanager
-      
+    
+  # Producer/Consumer Java
   app:
     build: ./AppSource
     depends_on:
@@ -79,12 +101,32 @@ services:
     environment:
       - APP_GOAL=client
       
+  # Prometheus
+  prometheus:
+    image: prom/prometheus:v2.27.1
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/flink.rules.yml:/etc/prometheus/flink.rules.yml
+    depends_on:
+      - taskmanager
 
-
-
-volumes:
-  zookeeper_data:
-    driver: local
-  kafka_data:
-    driver: local
+  # Grafana
+  grafana:
+    image: grafana/grafana:7.5.7
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=flink
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    depends_on:
+      - prometheus
       
+      
+      
+      
+

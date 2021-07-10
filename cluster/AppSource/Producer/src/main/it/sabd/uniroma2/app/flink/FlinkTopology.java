@@ -9,8 +9,8 @@ import it.sabd.uniroma2.app.enums.TimeSlot;
 import it.sabd.uniroma2.app.enums.WindowSize;
 import it.sabd.uniroma2.app.queries.query1.Query1;
 import it.sabd.uniroma2.app.queries.query2.Query2;
+import it.sabd.uniroma2.app.queries.query3.Query3;
 import it.sabd.uniroma2.app.util.Constants;
-import it.sabd.uniroma2.app.util.Utils;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.api.common.functions.MapFunction;
@@ -40,17 +40,17 @@ public class FlinkTopology {
 
         properties.put("bootstrap.servers", Constants.KAFKA_HOSTS);
         properties.put("group.id", "flink");
-        properties.put("enable.auto.commit", "true");
-        properties.put("auto.commit.interval.ms", "1000");
+
 
         if(Constants.MOCK) {
             executionEnvironment = StreamExecutionEnvironment.createLocalEnvironment();
+            executionEnvironment.setParallelism(1);
         } else {
             executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
+            //executionEnvironment.setParallelism(1);
         }
 
     }
-
 
     public void defineTopology(){
 
@@ -58,32 +58,34 @@ public class FlinkTopology {
 
         dataStream = preproccessing(dataStream);
 
-        //dataStream.print();
+        if(Constants.PRINT_FLINK_OUTPUT) dataStream.print();
 
-        //testStream(dataStream);
+        List<SingleOutputStreamOperator<String>> sinkableStream = new ArrayList<>();
 
         Query1 query1Month = new Query1(WindowSize.MONTHLY);
-        query1Month.defineQuery(dataStream);
+        sinkableStream.add(query1Month.defineQuery(dataStream));
 
         Query1 query1Week = new Query1(WindowSize.WEEKLY);
-        query1Week.defineQuery(dataStream);
+        sinkableStream.add(query1Week.defineQuery(dataStream));
 
         Query2 query2Month = new Query2(WindowSize.MONTHLY);
-        query2Month.defineQuery(dataStream);
+        sinkableStream.add(query2Month.defineQuery(dataStream));
 
         Query2 query2Week = new Query2(WindowSize.WEEKLY);
-        query2Week.defineQuery(dataStream);
+        sinkableStream.add(query2Week.defineQuery(dataStream));
 
-        //Query2 query2 = new Query2(WindowSize.WEEKLY);
-        //query2.defineQuery(dataStream);
+        Query3 query3Hour = new Query3(WindowSize.ONE_HOUR);
+        sinkableStream.add(query3Hour.defineQuery(dataStream));
 
+        Query3 query3TwoHour = new Query3(WindowSize.TWO_HOUR);
+        sinkableStream.add(query3TwoHour.defineQuery(dataStream));
 
-        //dataStream = addSink(dataStream);
-
-        // TODO: differenza tra datastream.execute e env.execute
+        if(!Constants.MOCK){
+            addSink(sinkableStream);
+        }
 
         try {
-            executionEnvironment.execute("Query");
+            executionEnvironment.execute("Queries");
         } catch (Exception e) {
             System.out.println("An error occurred executing the Flink Job.");
             e.printStackTrace();
@@ -91,76 +93,13 @@ public class FlinkTopology {
 
     }
 
-    private void testStream(DataStream<NavalData> dataStream){
-
-        SingleOutputStreamOperator<String> outputStreamOperator =
-                dataStream
-                        .map(new MapFunction<NavalData, String>() {
-                            @Override
-                            public String map(NavalData navalData) throws Exception {
-                                return navalData.getFormattedTs();
-                            }
-                        })
-                        .windowAll(SlidingEventTimeWindows.of(Time.days(7L), Time.days(7L), Time.seconds(Constants.TEST_WINDOW_OFFSET)))
-                        .reduce(new ReduceFunction<String>() {
-                            @Override
-                            public String reduce(String s, String t1) throws Exception {
-                                return s + "---*---" + t1;
-                            }
-                        });
-
-        outputStreamOperator.print();
-    }
-
-
-
-
-
-
-
     private DataStream<NavalData> registerSource(){
 
         DataStream<String> dataStream = null;
 
         if(Constants.MOCK){
 
-            dataStream = executionEnvironment.readTextFile("mock_dataset.txt");
-            /*DataStream<NavalData> shipsRoutes = executionEnvironment.fromElements(
-                    new NavalData(Utils.formatStringToDate("2015/03/10 12:15"), "0xc35c9ebbf48cbb5857a868ce441824d0b2ff783a", 99,
-                            (float) 10.56034, (float) 35.8109, "0xc35c9_10-03-15 12:xx - 10-03-15 13:26"),
-
-                    new NavalData(Utils.formatStringToDate("2015/03/11 12:13"), "0xc35c9ebbf48cbb5857a868ce441824d0bpippo", 66,
-                            (float) 11.56034, (float) 35.8109, "0xc35c9_10-03-15 12:xx - 10-03-15 13:26"),
-
-                    new NavalData(Utils.formatStringToDate("2015/03/11 12:15"), "0xc35c9ebbf48cbb5857a868ce441824d0b2topolino", 33,
-                            (float) -5.354218, (float) 35.8109, "0xc35c9_10-03-15 12:xx - 10-03-15 13:26"),
-
-                    new NavalData(Utils.formatStringToDate("2015/03/12 12:15"), "0xc35c9ebbf48cbb5857a868ce441824d0b2pluto", 70,
-                            (float) 11.56034, (float) 35.8109, "0xc35c9_10-03-15 12:xx - 10-03-15 13:26"),
-
-                    new NavalData(Utils.formatStringToDate("2015/03/13 12:15"), "0xc35c9ebbf48cbb5857a868ce441824d0bpaperino", 35,
-                            (float) -5.354218, (float) 35.8109, "0xc35c9_10-03-15 12:xx - 10-03-15 13:26"),
-
-                    new NavalData(Utils.formatStringToDate("2015/03/14 13:51"), "0x6cafd52f3e1a09950e6e889daabf81bafbe7a40a", 35,
-                            (float) -5.374995, (float) 36.04406, "0x6cafd_14-03-15 13:xx - 18-04-15 16:29"),
-
-                    new NavalData(Utils.formatStringToDate("2015/03/18 06:55"), "0x6d6794f3186f584637721a1e1789fd2e71c28195", 83,
-                            (float) -5.354218, (float) 35.92629, "0x6d679_17-03-15 7:xx - 20-03-15 18:18"),
-
-                    new NavalData(Utils.formatStringToDate("2015/03/18 06:57"), "0xb633ed54f31994072009a034d63d3b65e471fba9", 30,
-                            (float) 14.52148, (float) 35.8989, "0xb633e_18-03-15 6:xx - 18-03-15 8:24"),
-
-                    new NavalData(Utils.formatStringToDate("2015/03/18 06:58"), "0x6d6794f3186f584637721a1e1789fd2e71c28195", 83,
-                            (float) -5.354218, (float) 35.92628, "0x6d679_17-03-15 7:xx - 20-03-15 18:18"),
-
-                    new NavalData(Utils.formatStringToDate("2015/03/18 06:59"), "0xb633ed54f31994072009a034d63d3b65e4culo", 30,
-                            (float) 8.52536, (float) 35.90051, "0xb633e_18-03-15 6:xx - 18-03-15 8:24"),
-
-                    new NavalData(Utils.formatStringToDate("2020/03/18 06:59"), "0xb633ed54f31994072009a034d63d3b65e4cazzo", 30,
-                            (float) 8.52536, (float) 35.90051, "0xb633e_18-03-15 6:xx - 18-03-15 8:24")
-
-            );
-            return shipsRoutes; */
+            dataStream = executionEnvironment.readTextFile("test_dataset/dataset_Q3_easy.csv");
 
         } else {
             FlinkKafkaConsumer<String> kafkaSource = new FlinkKafkaConsumer<>(Constants.INPUT_TOPIC_NAME, new SimpleStringSchema(), properties);
@@ -182,7 +121,6 @@ public class FlinkTopology {
                 e.printStackTrace();
             }
 
-            //TODO: controlla il dato inviato da Kafka e vedi se l'ordine è corretto
             return new NavalData(formattedDate, values[1], values[2], Float.parseFloat(values[4]), Float.parseFloat(values[5]), values[10]);
         });
 
@@ -229,7 +167,6 @@ public class FlinkTopology {
              String lat_component = null;
              String lon_component = null;
 
-             //TODO: calcola bene sta roba
              if(lat >= 32 && lat < 33.3){
                  lat_component = "A";
              } else if(lat >= 33.3 && lat < 34.6){
@@ -288,7 +225,7 @@ public class FlinkTopology {
         dataStream = dataStream.map((MapFunction<NavalData, NavalData>) navalData -> {
 
             float lon = navalData.getLon();
-            //TODO: fai bene divisione mare
+
             Seas sea;
             if(lon <= Constants.WEST_SEA_END) sea = Seas.WESTERN_MEDITERANEAN_SEA;
             else sea = Seas.EASTERN_MEDITERANEAN_SEA;
@@ -324,10 +261,9 @@ public class FlinkTopology {
 
     private DataStream<NavalData> assignTimestamp(DataStream<NavalData> dataStream){
 
-        //TODO: imposa bene windows
         WatermarkStrategy<NavalData> watermarkStrategy = WatermarkStrategy
-                .<NavalData>forBoundedOutOfOrderness(Duration.ofMinutes(5L));
-        //TODO: Mettere giusto watermark
+                .<NavalData>forBoundedOutOfOrderness(Constants.ALLOWED_LATENESS);
+
         if(Constants.MOCK)
                 watermarkStrategy = watermarkStrategy.withTimestampAssigner((event, timestamp) -> event.getTs().getTime());
 
@@ -336,15 +272,33 @@ public class FlinkTopology {
         return dataStream;
     }
 
-    private void addSink(DataStream<String> datastream){
+    private void addSink(List<SingleOutputStreamOperator<String>> datastreams){
 
-        datastream.print();
-        FlinkKafkaProducer<String> kafkaSink = new FlinkKafkaProducer<>(Constants.OUTPUT_TOPIC_NAME, new SimpleStringSchema(), properties);
+        for(SingleOutputStreamOperator<String> stream : datastreams) {
 
-        datastream.addSink(kafkaSink);
+            FlinkKafkaProducer<String> kafkaSink = new FlinkKafkaProducer<>(Constants.OUTPUT_TOPIC_NAME, new SimpleStringSchema(), properties);
+
+            stream.addSink(kafkaSink);
+        }
 
     }
 
 
+    //Function used to Test Windowing (not Called or Referenced)
+    private void testStream(DataStream<NavalData> dataStream){
+
+        SingleOutputStreamOperator<String> outputStreamOperator =
+                dataStream
+                        .map((MapFunction<NavalData, String>) NavalData::getFormattedTs)
+                        .windowAll(SlidingEventTimeWindows.of(Time.days(7L), Time.days(7L), Time.seconds(Constants.TEST_WINDOW_OFFSET)))
+                        .reduce((ReduceFunction<String>) (s, t1) -> s + "######" + t1);
+
+        outputStreamOperator.print();
+    }
+
+
+
+
 
 }
+

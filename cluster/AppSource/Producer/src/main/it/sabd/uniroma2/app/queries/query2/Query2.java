@@ -1,16 +1,15 @@
 package it.sabd.uniroma2.app.queries.query2;
 
-import it.sabd.uniroma2.app.util.Constants;
 import it.sabd.uniroma2.app.entity.NavalData;
 import it.sabd.uniroma2.app.enums.WindowSize;
 import it.sabd.uniroma2.app.queries.QueryAbstract;
+import it.sabd.uniroma2.app.util.Constants;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
-
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
 
@@ -44,13 +43,12 @@ public class Query2 extends QueryAbstract {
                                 output += tuple.returnLists();
 
                                 collector.collect(output);
-                                //TODO: levare process window function, e fare ordinamento partizionato (distribuito) per ottimizzare
                             }
                         });
 
         output = appendTag(output);
 
-        output.print();
+        if(Constants.PRINT_FLINK_OUTPUT) output.print();
 
         return output;
     }

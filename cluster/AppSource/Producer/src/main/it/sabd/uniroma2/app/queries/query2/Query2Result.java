@@ -1,6 +1,7 @@
 package it.sabd.uniroma2.app.queries.query2;
 
 import it.sabd.uniroma2.app.enums.TimeSlot;
+import it.sabd.uniroma2.app.util.Constants;
 import org.apache.flink.api.java.tuple.Tuple2;
 
 import java.util.ArrayList;
@@ -43,10 +44,44 @@ public class Query2Result {
 
     }
 
+
     public String returnLists(){
+
         String output = ",";
-        output += TimeSlot.BEFORE_NOON + "," + listCellsBeforeNoon.toString();
-        output += TimeSlot.AFTER_NOON + "," + listCellsAfterNoon.toString();
+
+        output += TimeSlot.BEFORE_NOON + "," + computeLeaderBoard(listCellsBeforeNoon);
+        output += TimeSlot.AFTER_NOON + "," + computeLeaderBoard(listCellsAfterNoon);
+
+        return output;
+    }
+
+
+    private String computeLeaderBoard(ArrayList<Tuple2<String, Integer>> list){
+
+        String leaderBoard = "";
+        for(int i = 0; i < Constants.QUERY2_TOP; i++){
+            leaderBoard += getAndRemoveMax(list);
+        }
+
+        return leaderBoard;
+
+    }
+
+    private String getAndRemoveMax(ArrayList<Tuple2<String, Integer>> list){
+
+        if(list.isEmpty()) return "";
+
+
+        Tuple2<String, Integer> max = list.get(0);
+
+
+        for(Tuple2<String, Integer> e : list){
+            if(max.f1 < e.f1) max = e;
+        }
+
+        String output = max.f0 + ";";
+
+        list.remove(max);
 
         return output;
     }

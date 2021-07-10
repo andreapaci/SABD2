@@ -24,9 +24,6 @@ public class Query1 extends QueryAbstract {
 
         navalData = navalData.filter((FilterFunction<NavalData>) navalData1 -> navalData1.getSea() == Seas.WESTERN_MEDITERANEAN_SEA);
 
-        // Partizionamento dello stream in base alla cella del mare, creazione finestre settimanali con funzione di
-        // aggregazione per mantenere per ogni finestra e per ogni cella il numero ed il tipo di navi diverse viste
-        // giornalmente. Operatore di Map per calcolare la media giornaliera
         SingleOutputStreamOperator<String> output = navalData
                 .keyBy(NavalData::getCell)
                 .window(SlidingEventTimeWindows.of(this.windowSizeTime, this.slidingFactor, this.offset))
@@ -35,7 +32,7 @@ public class Query1 extends QueryAbstract {
 
         output = appendTag(output);
 
-        output.print();
+        if(Constants.PRINT_FLINK_OUTPUT) output.print();
 
         return output;
     }

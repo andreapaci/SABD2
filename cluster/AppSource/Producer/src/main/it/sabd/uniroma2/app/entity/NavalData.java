@@ -11,16 +11,11 @@ public class NavalData {
     private Date ts;
     private String id;
     private String shipType;
-    //private int speed;
     private float lon;
     private float lat;
     private String cell;
     private Seas sea;
     private TimeSlot timeSlot;
-    //private String course;
-    //private String heading;
-    //private String departurePort;
-    //private String reportedDraugth;
     private String tripId;
 
     public NavalData(Date ts, String id, String shipType, float lon, float lat, String tripId) {
@@ -32,7 +27,6 @@ public class NavalData {
         this.tripId = tripId;
     }
 
-    //TODO: da rimuovere
     public NavalData(Date ts, String id, int shipType, float lon, float lat, String tripId) {
         this.ts = ts;
         this.id = id;

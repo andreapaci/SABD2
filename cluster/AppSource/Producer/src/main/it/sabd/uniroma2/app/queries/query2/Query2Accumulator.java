@@ -35,7 +35,6 @@ public class Query2Accumulator {
         ArrayList<String> list = cells.get(cell);
         String data = id + date;
 
-        //TODO: usare hashmap invece che arraylist (key = nave giorno, value = nan)
         if (list == null) {
             list = new ArrayList<>();
             list.add(data);

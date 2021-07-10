@@ -5,14 +5,16 @@ import it.sabd.uniroma2.app.util.Constants;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.Consumer;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.common.TopicPartition;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 
 //Access point to Kafka Cluster as Singleton
@@ -23,7 +25,7 @@ public class KafkaClient {
     private Properties properties;
     private AdminClient adminClient;
     private Producer<Long, String> kafkaProducer;
-    private Consumer<String, String> kafkaConsumer;
+    private KafkaConsumer<String, String> kafkaConsumer;
 
 
     private KafkaClient(){
@@ -36,11 +38,21 @@ public class KafkaClient {
         properties.put("auto.commit.interval.ms", "1000");
         properties.put("key.serializer", "org.apache.kafka.common.serialization.LongSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        properties.put("key.deserializer", "org.apache.kafka.common.serialization.LongDeserializer");
+        properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
+
+        Properties propertiesClient = new Properties();
+
+        propertiesClient.put("bootstrap.servers", Constants.KAFKA_HOSTS);
+        propertiesClient.put("group.id", "consumer");
+        propertiesClient.put("key.serializer", "org.apache.kafka.common.serialization.LongSerializer");
+        propertiesClient.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        propertiesClient.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        propertiesClient.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+
         kafkaProducer = new KafkaProducer<>(properties);
-        kafkaConsumer = new KafkaConsumer<>(properties);
+        kafkaConsumer = new KafkaConsumer<>(propertiesClient);
     }
 
     public void addInputTopic(){
@@ -48,10 +60,20 @@ public class KafkaClient {
     }
 
     public void addOutputTopic(){
+
         addNewTopic(Constants.OUTPUT_TOPIC_NAME, Constants.PARTITION_NUMBER, Constants.REPLICATION_FACTOR);
+
+        try { TimeUnit.SECONDS.sleep(10L); }
+        catch (Exception e) { System.out.println("Could not wait for the Consumer to Subscribe..."); e.printStackTrace(); }
+
+        System.out.println("Subscribing to " + Constants.OUTPUT_TOPIC_NAME);
+        kafkaConsumer.subscribe(Collections.singletonList(Constants.OUTPUT_TOPIC_NAME));
+
+        try { TimeUnit.SECONDS.sleep(10L); }
+        catch (Exception e) { System.out.println("Could not wait for the Consumer to Subscribe..."); e.printStackTrace(); }
     }
 
-    public void addNewTopic(String topicName, int numberPartition, int replicationFactor){
+    private void addNewTopic(String topicName, int numberPartition, int replicationFactor){
 
         adminClient = AdminClient.create(properties);
 
@@ -82,6 +104,22 @@ public class KafkaClient {
 
         kafkaProducer.flush();
 
+    }
+
+    public ArrayList<String> readMessage(){
+
+
+        ArrayList<String> texts = new ArrayList<>();
+
+        ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofSeconds(1));
+
+        records.forEach(record -> {
+            texts.add(record.value());
+        });
+
+        kafkaConsumer.commitAsync();
+
+        return texts;
     }
 
     public void killProducer(){

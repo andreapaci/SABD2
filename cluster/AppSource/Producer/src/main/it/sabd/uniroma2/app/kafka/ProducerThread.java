@@ -23,12 +23,16 @@ public class ProducerThread implements Runnable {
 
         System.out.println("Kafka Producer Thread started.");
 
+        try { TimeUnit.SECONDS.sleep(30L); }
+        catch (Exception e) { System.out.println("Could not wait for the Producer thread..."); e.printStackTrace(); }
+
+
 
         KafkaClient.getInstance().addInputTopic();
 
         Date previousDate = formatDate(dataset.get(0)[0]);
-        long index = 0;
 
+        long index = 0;
         while(!dataset.isEmpty()){
 
             Date actualDate = formatDate(dataset.get(0)[0]);
@@ -42,9 +46,10 @@ public class ProducerThread implements Runnable {
             long waitTime = (long) (((float) diff / (1000f * 60f)) * Constants.MINUTE_DURATION);
 
 
-            try { TimeUnit.MICROSECONDS.sleep(waitTime); }
-            catch(Exception e) { System.out.println("Could not wait " + waitTime + " microseconds."); }
-
+            if(Constants.PROPORTIONAL_REPLAY) {
+                try { TimeUnit.MICROSECONDS.sleep(waitTime); }
+                catch (Exception e) { System.out.println("Could not wait " + waitTime + " microseconds."); e.printStackTrace(); }
+            }
             KafkaClient.getInstance().sendMessage(actualDate.getTime(), arrayToCommaString(dataset.get(0)));
 
             if(index % 500 == 0)
@@ -53,6 +58,7 @@ public class ProducerThread implements Runnable {
             dataset.remove(0);
 
             previousDate = actualDate;
+
 
             index++;
 

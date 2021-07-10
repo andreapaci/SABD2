@@ -5,5 +5,4 @@ public enum WindowSize {
     MONTHLY,
     ONE_HOUR,
     TWO_HOUR
-
 }

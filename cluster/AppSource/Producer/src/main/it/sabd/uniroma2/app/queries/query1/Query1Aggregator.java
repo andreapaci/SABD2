@@ -63,4 +63,5 @@ public class Query1Aggregator implements AggregateFunction<NavalData, HashMap<St
     public HashMap<String, Integer> merge(HashMap<String, Integer> stringIntegerHashMap, HashMap<String, Integer> acc1) {
         return null;
     }
+
 }

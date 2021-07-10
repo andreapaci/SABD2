@@ -6,7 +6,6 @@ import org.apache.flink.api.common.functions.AggregateFunction;
 public class Query2Aggregator implements AggregateFunction<NavalData, Query2Accumulator, Query2Result> {
 
 
-
     @Override
     public Query2Accumulator createAccumulator() {
         return new Query2Accumulator();

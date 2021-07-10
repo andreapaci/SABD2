@@ -5,6 +5,7 @@ import it.sabd.uniroma2.app.flink.FlinkTopology;
 import it.sabd.uniroma2.app.kafka.ConsumerThread;
 import it.sabd.uniroma2.app.kafka.ProducerThread;
 import it.sabd.uniroma2.app.util.CSVParser;
+import it.sabd.uniroma2.app.util.CSVWriter;
 import it.sabd.uniroma2.app.util.Constants;
 
 import java.util.List;
@@ -15,11 +16,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //System variable to decide jar goal (Kafka Client or Flink Job)
         Constants.MOCK = false;
 
         if(args.length == 1) if(args[0].equals("scan")) flinkJob();
 
+        //System variable to decide jar goal (Kafka Client or Flink Job)
         String appGoal = System.getenv(Constants.APP_GOAL_NAME);
 
         if(appGoal == null){
@@ -43,7 +44,8 @@ public class Main {
     }
 
     private static void client(){
-        //TODO: download dei dati da repo
+
+        System.out.println("Sleep for 10 seconds...");
 
         try{TimeUnit.SECONDS.sleep(10l);} catch(Exception e) { e.printStackTrace();}
 
@@ -73,8 +75,7 @@ public class Main {
     private static List<String[]> loadDataset(boolean printOutput, boolean saveDataset){
 
 
-        //CSVParser csvParser = new CSVParser("dataset.csv");
-        CSVParser csvParser = new CSVParser("testData.csv");
+        CSVParser csvParser = new CSVParser("dataset.csv");
         List<String[]> dataset = csvParser.parseAndSort(saveDataset);
 
         if(printOutput) {
