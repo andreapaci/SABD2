@@ -44,7 +44,7 @@ services:
       
   # Master Flink
   jobmanager:
-    image: flink:1.13.0-scala_2.11
+    build: ./Flink
     ports:
       - "8081:8081"
     command: jobmanager
@@ -52,12 +52,13 @@ services:
       - |
         FLINK_PROPERTIES=
         jobmanager.rpc.address: jobmanager
-        metrics setting metrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter
+        metrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter
         metrics.reporter.prom.port: 9251
         metrics.system-resource: true
-        metrics.system-resource-probing-interval: 5000
-        metrics.latency.interval: 1000
-        metrics.latency.granularity: operator
+        metrics.system-resource-probing-interval: 100
+        metrics.latency.interval: 100
+        metrics.latency.granularity: single
+        state.backend.latency-track.keyed-state-enabled: true
         state.backend.rocksdb.metrics.actual-delayed-write-rate: true
         state.backend.rocksdb.metrics.background-errors: true
         state.backend.rocksdb.metrics.num-deletes-imm-mem-tables: true
@@ -67,7 +68,7 @@ services:
 
   # Worker Flink
   taskmanager:
-    image: flink:1.13.0-scala_2.11
+    build: ./Flink
     command: taskmanager
     scale: 3
     environment:
@@ -75,12 +76,13 @@ services:
         FLINK_PROPERTIES=
         jobmanager.rpc.address: jobmanager
         taskmanager.numberOfTaskSlots: 3
-        metrics setting metrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter
+        metrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter
         metrics.reporter.prom.port: 9251
         metrics.system-resource: true
-        metrics.system-resource-probing-interval: 1000
-        metrics.latency.interval: 1000
-        metrics.latency.granularity: operator
+        metrics.system-resource-probing-interval: 100
+        metrics.latency.interval: 100
+        metrics.latency.granularity: single
+        state.backend.latency-track.keyed-state-enabled: true
         state.backend.rocksdb.metrics.actual-delayed-write-rate: true
         state.backend.rocksdb.metrics.background-errors: true
         state.backend.rocksdb.metrics.num-deletes-imm-mem-tables: true

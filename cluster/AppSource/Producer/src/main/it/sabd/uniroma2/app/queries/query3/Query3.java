@@ -8,6 +8,7 @@ import it.sabd.uniroma2.app.queries.query1.Query1Aggregator;
 import it.sabd.uniroma2.app.queries.query1.Query1MapFunction;
 import it.sabd.uniroma2.app.queries.query1.Query1ProcessWindowFunction;
 import it.sabd.uniroma2.app.util.Constants;
+import it.sabd.uniroma2.app.util.QueryLatencyTracker;
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.tuple.Tuple3;
@@ -46,7 +47,9 @@ public class Query3 extends QueryAbstract {
 
         SingleOutputStreamOperator<String> output = navigationScores.keyBy(NavigationScore::getTs)
                 .window(SlidingEventTimeWindows.of(this.windowSizeTime, this.slidingFactor, this.offset))
-                .aggregate(new Query3AggregatorTop5()).setParallelism(1);
+                .aggregate(new Query3AggregatorTop5()).setParallelism(1)
+                .map(new QueryLatencyTracker("Query3" + window.toString()));
+        ;
 
 
         output = appendTag(output);

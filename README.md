@@ -34,7 +34,7 @@ Kafka Interfaccie Esterne:
 Prometheus:
  - localhost:9090
  
- Grafana:
+ Grafana: (user: admin, password: flink)
   - localhost:3000
   
   ## Framework, Tool e Librerie utilizzate
@@ -44,6 +44,8 @@ Prometheus:
   - ZooKeeper
   - Docker e Docker-Compose
   - Prometheus
+  - Oshi Core
+  - JNA Platform
   - Grafana
   - Conduktor
   - Java 1.8

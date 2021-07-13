@@ -5,6 +5,7 @@ import it.sabd.uniroma2.app.entity.NavalData;
 import it.sabd.uniroma2.app.enums.Seas;
 import it.sabd.uniroma2.app.enums.WindowSize;
 import it.sabd.uniroma2.app.queries.QueryAbstract;
+import it.sabd.uniroma2.app.util.QueryLatencyTracker;
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
@@ -28,7 +29,10 @@ public class Query1 extends QueryAbstract {
                 .keyBy(NavalData::getCell)
                 .window(SlidingEventTimeWindows.of(this.windowSizeTime, this.slidingFactor, this.offset))
                 .aggregate(new Query1Aggregator(), new Query1ProcessWindowFunction())
-                .map(new Query1MapFunction(window));
+                .map(new Query1MapFunction(window))
+                .map(new QueryLatencyTracker("Query1" + window.toString()));;
+
+
 
         output = appendTag(output);
 

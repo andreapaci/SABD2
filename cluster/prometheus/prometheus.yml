@@ -9,4 +9,4 @@ rule_files:
 scrape_configs:
 - job_name: 'flink'
   static_configs:
-  - targets: ['jobmanager:9251', 'taskmanager1:9251', 'taskmanager2:9251', 'taskmanager3:9251']
+  - targets: ['jobmanager:9251', 'cluster_taskmanager_1:9251', 'cluster_taskmanager_2:9251', 'cluster_taskmanager_3:9251']

@@ -4,6 +4,7 @@ import it.sabd.uniroma2.app.entity.NavalData;
 import it.sabd.uniroma2.app.enums.WindowSize;
 import it.sabd.uniroma2.app.queries.QueryAbstract;
 import it.sabd.uniroma2.app.util.Constants;
+import it.sabd.uniroma2.app.util.QueryLatencyTracker;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
@@ -44,7 +45,8 @@ public class Query2 extends QueryAbstract {
 
                                 collector.collect(output);
                             }
-                        });
+                        })
+                .map(new QueryLatencyTracker("Query2" + window.toString()));
 
         output = appendTag(output);
 
